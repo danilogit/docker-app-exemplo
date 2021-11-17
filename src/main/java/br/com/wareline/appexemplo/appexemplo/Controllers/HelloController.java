@@ -17,4 +17,9 @@ class HelloController {
         return "Olá Wareliner! O nome desse servidor é " + env.getProperty("HOSTNAME");
     }
 
+    @GetMapping("/read-file")
+    String readFile() {
+        return ""; 
+    }
+
 }
