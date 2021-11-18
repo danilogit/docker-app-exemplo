@@ -1,11 +1,14 @@
-FROM openjdk:11
+FROM openjdk:11-jre-slim
 
-WORKDIR  /app/src
+WORKDIR  /app
 
-ADD . /app/src
-
-RUN ./mvnw clean install
+COPY ./target/app-exemplo-0.0.1-SNAPSHOT.jar /app/
+COPY ./data /app/data/
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "/app/src/target/app-exemplo-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT  ["java", "-jar"]
+
+CMD ["app-exemplo-0.0.1-SNAPSHOT.jar"]
+
+#CMD ["java", "-jar", "/app/src/target/app-exemplo-0.0.1-SNAPSHOT.jar"]

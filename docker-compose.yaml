@@ -1,0 +1,17 @@
+version: "3.2"
+
+services: 
+
+    client-app:
+        image: docker-app-exemplo:latest
+        environment: 
+            BG_COLOR: "white"
+            MY_REMOTE_URL: "http://remote-app:8080/remote"
+        ports: 
+            - 8080:8080
+
+    remote-app:
+        image: docker-app-exemplo:latest
+       # Não precisa de expor uma porta pois o servico irá rodar na rede interna do Docker
+       # ports: 
+       #   - 8080:8080
